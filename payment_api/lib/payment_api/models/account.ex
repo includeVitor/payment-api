@@ -1,13 +1,13 @@
 defmodule PaymentApi.Models.Account do
-  use Ecto.Migration
+  use Ecto.Schema
   import Ecto.Changeset
   alias PaymentApi.Models.User
 
-  @primary_key {:id, :binary_id, autogenerate:true}
+  @primary_key {:id, :binary_id, autogenerate: true}
 
   @foreign_key_type :binary_id
 
-  @required_params {:balance, :user_id}
+  @required_params [:balance, :user_id]
 
   schema "accounts" do
     field :balance, :decimal
