@@ -1,6 +1,7 @@
 defmodule PaymentApi.Models.User do
   use Ecto.Migration
   import Ecto.Changeset
+  alias PaymentApi.Models.Account
 
   @primary_key {:id, :binary_id, autogenerate:true}
 
@@ -11,11 +12,12 @@ defmodule PaymentApi.Models.User do
     field :email, :string
     field :password, :string, virtual: true
     field :password_hash, :string
+    has_one :account, Account
 
     timestamps()
   end
 
-  def changeset(user, param \\ %{}) do
+  def changeset(user, params \\ %{}) do
     user
     |> cast(params, @required_params)
     |> validate_required(@required_params)
