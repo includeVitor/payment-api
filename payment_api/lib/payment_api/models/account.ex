@@ -1,11 +1,7 @@
 defmodule PaymentApi.Models.Account do
-  use Ecto.Schema
+  use PaymentApi.Schema
   import Ecto.Changeset
   alias PaymentApi.Models.User
-
-  @primary_key {:id, :binary_id, autogenerate: true}
-
-  @foreign_key_type :binary_id
 
   @required_params [:balance, :user_id]
 
@@ -16,8 +12,8 @@ defmodule PaymentApi.Models.Account do
     timestamps()
   end
 
-  def changeset(account, params \\ %{}) do
-    account
+  def changeset(params) do
+    %__MODULE__{}
     |> cast(params, @required_params)
     |> validate_required(@required_params)
     |> check_constraint(:balance, name: :balance_must_be_positive_or_zero)

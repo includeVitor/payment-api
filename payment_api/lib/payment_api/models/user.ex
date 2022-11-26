@@ -5,7 +5,7 @@ defmodule PaymentApi.Models.User do
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  @required_params {:nickname, :email}
+  @required_params [:nickname, :email]
 
   schema "users" do
     field :nickname, :string
@@ -17,12 +17,11 @@ defmodule PaymentApi.Models.User do
     timestamps()
   end
 
-  def changeset(user, params \\ %{}) do
-    user
+  def changeset(params) do
+    %__MODULE__{}
     |> cast(params, @required_params)
     |> validate_required(@required_params)
     |> validate_length(:password, min: 4)
-    |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
     |> unique_constraint(:nickname)
   end

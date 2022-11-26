@@ -17,6 +17,10 @@ config :payment_api, PaymentApiWeb.Endpoint,
   pubsub_server: PaymentApi.PubSub,
   live_view: [signing_salt: "+qxPsrTi"]
 
+config :payment_api, PaymentApiWeb.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
