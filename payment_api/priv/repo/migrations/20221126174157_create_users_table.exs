@@ -10,7 +10,7 @@ defmodule PaymentApi.Repo.Migrations.CreateUsersTable do
       timestamps()
     end
 
-    create_unique_index(:users, [:email])
-    create_unique_index(:users, [:nickname])
+    create unique_index(:users, [:email])
+    create unique_index(:users, [:nickname])
   end
 end
