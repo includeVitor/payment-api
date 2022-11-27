@@ -1,4 +1,4 @@
-defmodule PaymentApi.Users.Create do
+defmodule PaymentApi.UseCases.User.Create do
   alias Ecto.Multi
   alias PaymentApi.Models.{User, Account}
   alias PaymentApi.Repo
