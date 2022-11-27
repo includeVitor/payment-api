@@ -3,7 +3,7 @@ defmodule PaymentApiWeb.UserController do
 
   alias PaymentApi.Models.User
 
-  # action_fallback PaymentApiWeb.FallbackController
+  action_fallback PaymentApiWeb.FallbackController
 
   def create(conn, params) do
     with {:ok, %User{} = user} <- PaymentApi.create_user(params) do
