@@ -1,6 +1,5 @@
 defmodule PaymentApiWeb.UserController do
   use PaymentApiWeb, :controller
-
   alias PaymentApi.Models.User
 
   action_fallback PaymentApiWeb.FallbackController

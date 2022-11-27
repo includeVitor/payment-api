@@ -13,12 +13,12 @@ defmodule PaymentApi.UseCases.Account.Operation do
     end)
   end
 
-  defp get_operation_name(operation), do: "account_#{Atom.to_string((operation))}" |> String.to_atom()
+  defp get_operation_name(operation), do: "account_#{Atom.to_string(operation)}" |> String.to_atom()
 
   defp get_account(repo, id) do
     case repo.get(Account, id) do
-      nil -> {:error, "Account not found!"}
-      account -> {:o, account}
+      nil -> {:error, "Account, not found!"}
+      account -> {:ok, account}
     end
   end
 
@@ -36,7 +36,7 @@ defmodule PaymentApi.UseCases.Account.Operation do
 
   defp handle_cast({:ok, value}, balance, :deposit), do: Decimal.add(value, balance)
   defp handle_cast({:ok, value}, balance, :withdraw), do: Decimal.sub(balance, value)
-  defp handle_cast({:error, _balance, _operation}), do: {:error, "Invalid deposit value!"}
+  defp handle_cast(:error, _balance, _operation), do: {:error, "Invalid deposit value!"}
 
   defp update_account(value, repo, account) do
     params = %{balance: value}

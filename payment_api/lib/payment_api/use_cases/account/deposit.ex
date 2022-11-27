@@ -1,4 +1,4 @@
-defmodule PaymentApi.UseCases.Account.Operation do
+defmodule PaymentApi.UseCases.Account.Deposit do
   alias PaymentApi.UseCases.Account.Operation
   alias PaymentApi.Repo
 
