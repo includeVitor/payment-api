@@ -23,7 +23,11 @@ defmodule PaymentApiWeb.Router do
   scope "/api", PaymentApiWeb do
     pipe_through :api
 
+    # /users
     post "/users", UserController, :create
+
+    # /accounts
+    patch "/accounts/:id/deposit", AccountController, :deposit
   end
 
   # Other scopes may use custom stacks.

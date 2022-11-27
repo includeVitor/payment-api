@@ -2,9 +2,9 @@ defmodule PaymentApi do
   alias PaymentApi.UseCases.User.Create, as: UserCreate
   alias PaymentApi.UseCases.Account.{Deposit}
 
-  # /Users
+  # /users
   defdelegate create_user(params), to: UserCreate, as: :call
 
-  # /Account
+  # /accounts
   defdelegate deposit(params), to: Deposit, as: :call
 end
