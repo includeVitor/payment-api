@@ -28,6 +28,7 @@ defmodule PaymentApiWeb.Router do
 
     # /accounts
     patch "/accounts/:id/deposit", AccountController, :deposit
+    patch "/accounts/:id/withdraw", AccountController, :withdraw
   end
 
   # Other scopes may use custom stacks.

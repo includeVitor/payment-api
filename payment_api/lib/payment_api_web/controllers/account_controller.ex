@@ -13,4 +13,12 @@ defmodule PaymentApiWeb.AccountController do
     end
   end
 
+  def withdraw(conn, params) do
+    with {:ok, %Account{} = account} <- PaymentApi.withdraw(params) do
+      conn
+      |> put_status(:ok)
+      |> render("patch.json", account: account)
+    end
+  end
+
 end
