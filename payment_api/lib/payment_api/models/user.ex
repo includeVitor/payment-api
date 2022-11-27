@@ -1,9 +1,7 @@
 defmodule PaymentApi.Models.User do
-  use Ecto.Schema
+  use PaymentApi.Schema
   import Ecto.Changeset
   alias PaymentApi.Models.Account
-
-  @primary_key {:id, :binary_id, autogenerate: true}
 
   @required_params [:nickname, :email]
 

@@ -18,8 +18,8 @@ config :payment_api, PaymentApiWeb.Endpoint,
   live_view: [signing_salt: "+qxPsrTi"]
 
 config :payment_api, PaymentApiWeb.Repo,
-  migration_primary_key: [type: :binary_id],
-  migration_foreign_key: [type: :binary_id]
+  migration_primary_key: [name: :uuid, type: :binary_id],
+  migration_foreign_key: [column: :uuid, type: :binary_id]
 
 # Configures the mailer
 #

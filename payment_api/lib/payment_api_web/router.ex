@@ -20,6 +20,12 @@ defmodule PaymentApiWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/api", PaymentApiWeb do
+    pipe_through :api
+
+    post "/users", UserController, :create
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", PaymentApiWeb do
   #   pipe_through :api
