@@ -21,4 +21,12 @@ defmodule PaymentApiWeb.AccountController do
     end
   end
 
+  def transaction(conn, params) do
+    with {:ok, %TransactionResponse{}= transaction} <- PaymentApi.transaction(params) do
+      conn
+      |> put_status(:ok)
+      |> render("transaction.json", transaction: transaction)
+    end
+  end
+
 end

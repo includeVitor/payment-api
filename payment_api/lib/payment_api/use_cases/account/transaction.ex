@@ -1,4 +1,4 @@
-defmodule PaymentApiWeb.UseCases.Account.Transaction do
+defmodule PaymentApi.UseCases.Account.Transaction do
   alias Ecto.Multi
   alias PaymentApi.Repo
   alias PaymentApi.UseCases.Account.Operation
