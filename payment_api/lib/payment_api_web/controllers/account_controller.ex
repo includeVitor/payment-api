@@ -9,7 +9,7 @@ defmodule PaymentApiWeb.AccountController do
     with {:ok, %Account{} = account} <- PaymentApiWeb.deposit(params) do
       conn
       |> put_status(:ok)
-      |> render("update.json", account: account)
+      |> render("patch.json", account: account)
     end
   end
 
