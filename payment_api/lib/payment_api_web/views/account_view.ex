@@ -12,7 +12,9 @@ defmodule PaymentApiWeb.AccountView do
     }
   end
 
-  def render("transaction.json", %{transaction: %TransactionResponse{to_account: to_account, from_account: from_account}}) do
+  def render("transaction.json", %{
+        transaction: %TransactionResponse{to_account: to_account, from_account: from_account}
+      }) do
     %{
       message: "Transaction processed successfully",
       account: %{
@@ -27,5 +29,4 @@ defmodule PaymentApiWeb.AccountView do
       }
     }
   end
-
 end

@@ -2,8 +2,12 @@ defmodule PaymentApiWeb.UserView do
   alias PaymentApi.Models.{User, Account}
 
   def render("create.json", %{
-    user: %User{account: %Account{id: account_id, balance: balance}, id: id, nickname: nickname}
-    }) do
+        user: %User{
+          account: %Account{id: account_id, balance: balance},
+          id: id,
+          nickname: nickname
+        }
+      }) do
     %{
       message: "User created",
       user: %{

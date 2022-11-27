@@ -13,7 +13,8 @@ defmodule PaymentApi.UseCases.Account.Operation do
     end)
   end
 
-  defp get_operation_name(operation), do: "account_#{Atom.to_string(operation)}" |> String.to_atom()
+  defp get_operation_name(operation),
+    do: "account_#{Atom.to_string(operation)}" |> String.to_atom()
 
   defp get_account(repo, id) do
     case repo.get(Account, id) do
@@ -40,9 +41,11 @@ defmodule PaymentApi.UseCases.Account.Operation do
 
   defp update_account(value, repo, account) do
     params = %{balance: value}
+
     account
     |> Account.changeset(params)
     |> repo.update
   end
+
   defp update_account({:error, _reason} = error, _repo, _account), do: error
 end
