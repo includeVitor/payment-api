@@ -37,7 +37,7 @@ defmodule PaymentApi.UseCases.Account.Operation do
 
   defp handle_cast({:ok, value}, balance, :deposit), do: Decimal.add(value, balance)
   defp handle_cast({:ok, value}, balance, :withdraw), do: Decimal.sub(balance, value)
-  defp handle_cast(:error, _balance, _operation), do: {:error, "Invalid deposit value!"}
+  defp handle_cast(:error, _balance, _operation), do: {:error, "Invalid value!"}
 
   defp update_account({:error, _reason} = error, _repo, _account), do: error
 
