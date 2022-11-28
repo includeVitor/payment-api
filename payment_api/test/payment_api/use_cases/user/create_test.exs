@@ -17,7 +17,7 @@ defmodule PaymentApi.UseCases.User.CreateTest do
       assert %User{nickname: "includevitor", email: "includevitor@email.com", id: ^user_id} = user
     end
 
-    test "should be able to handle invalid params" do
+    test "should be able to handle invalid params while creating an user" do
       params = %{
         nickname: "",
         email: ""

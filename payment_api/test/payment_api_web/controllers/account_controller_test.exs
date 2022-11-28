@@ -29,5 +29,21 @@ defmodule PaymentApiWeb.AccountControllerTest do
 
       assert expected_response === response
     end
+
+    test "should be able to handle invalid params while making an deposit", %{
+      conn: conn,
+      account_id: account_id
+    } do
+      params = %{"value" => "not an number"}
+
+      response =
+        conn
+        |> patch(Routes.account_path(conn, :deposit, account_id, params))
+        |> json_response(:bad_request)
+
+      expected_response = %{"message" => "Invalid deposit value!"}
+
+      assert expected_response == response
+    end
   end
 end
