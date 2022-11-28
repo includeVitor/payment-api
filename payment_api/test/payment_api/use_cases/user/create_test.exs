@@ -3,7 +3,7 @@ defmodule PaymentApi.UseCases.User.CreateTest do
   alias PaymentApi.Models.User
   alias PaymentApi.UseCases.User.Create
 
-  describe "call/1" do
+  describe "call" do
     test "should be able to create an user" do
       params = %{
         nickname: "includevitor",
