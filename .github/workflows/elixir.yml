@@ -58,7 +58,6 @@ jobs:
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
       - name: Upload coverage
-        working-directory: ./payment_api
         uses: codecov/codecov-action@v1
         with:
-          files: ./cover/excoveralls.json
+          files: ./payment_api/cover/excoveralls.json
