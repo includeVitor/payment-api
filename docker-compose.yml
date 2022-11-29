@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  payment_api_web:
+    build: .
+    container_name: payment_api_web
+    command: /app/entry_point.sh
+    volumes:
+      - ./payment_api:/app
+    ports:
+      - 4000:4000
+    environment:
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: payment
+      PGHOST: payment_db
+      PGPORT: 5432
+    depends_on:
+      - payment_db
+  payment_db:
+    image: postgres
+    container_name: payment_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    restart: always
+    volumes:
+      - ./docker-volumes/postgres-data:/var/lib/postgresql/data
