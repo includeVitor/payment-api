@@ -51,7 +51,7 @@ jobs:
         run: mix deps.get
       - name: Run tests
         working-directory: ./payment_api
-        run: mix test
+        run: mix coveralls.json
         env:
           # The hostname used to communicate with the PostgreSQL service container
           POSTGRES_HOST: postgres
