@@ -1,6 +1,6 @@
 # Payment Api
 
-[![Elixir CI](https://github.com/includevitor/payment-app/actions/workflows/elixir.yml/badge.svg)
+![Elixir CI](https://github.com/includevitor/payment-app/actions/workflows/elixir.yml/badge.svg)
 
 To start using docker:
 
