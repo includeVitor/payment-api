@@ -3,7 +3,7 @@ defmodule PaymentApiWeb.AccountController do
   alias PaymentApi.Models.Account
   alias PaymentApi.UseCases.Account.Dto.TransactionResponse, as: TransactionResponse
 
-  action_fallback PaymentApiWeb.FallbackController
+  action_fallback(PaymentApiWeb.FallbackController)
 
   def deposit(conn, params) do
     with {:ok, %Account{} = account} <- PaymentApi.deposit(params) do

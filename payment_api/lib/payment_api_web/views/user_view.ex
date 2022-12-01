@@ -22,4 +22,15 @@ defmodule PaymentApiWeb.UserView do
       }
     }
   end
+
+  def render("users.json", %{users: users}) do
+    list =
+      Enum.map(users, fn user ->
+        %{id: user.id, nickname: user.nickname, email: user.email}
+      end)
+
+    %{
+      data: list
+    }
+  end
 end
